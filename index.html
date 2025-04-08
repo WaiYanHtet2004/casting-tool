@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Casting Tool</title>
+    <style>
+      body {
+        background: #1e1e2f;
+        color: #f0f0f0;
+        font-family: "Segoe UI", sans-serif;
+        padding: 40px;
+      }
+
+      h2 {
+        color: #ffaaff;
+      }
+
+      input {
+        width: 300px;
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 10px 16px;
+        font-size: 16px;
+        background-color: #8833ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #aa55ff;
+      }
+
+      .output {
+        margin-top: 30px;
+        background: #2e2e3e;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .output p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0.4em 0;
+      }
+
+      em {
+        color: #66ffcc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🌌 JavaScript Casting Tool</h2>
+    <input id="userInput" placeholder="Type something..." />
+    <button onclick="cast()">Cast It!</button>
+
+    <div class="output" id="result"></div>
+
+    <script>
+      function cast() {
+        const rawInput = document.getElementById("userInput").value;
+        const result = document.getElementById("result");
+
+        const stringVal = String(rawInput);
+        const numberVal = Number(rawInput);
+        const booleanVal = Boolean(rawInput);
+
+        result.innerHTML = `
+        <p><strong>Original:</strong> ${rawInput} <em>(${typeof rawInput})</em></p>
+        <p><strong>As String:</strong> "${stringVal}" <em>(${typeof stringVal})</em></p>
+        <p><strong>As Number:</strong> ${
+          isNaN(numberVal) ? "NaN" : numberVal
+        } <em>(${typeof numberVal})</em></p>
+        <p><strong>As Boolean:</strong> ${booleanVal} <em>(${typeof booleanVal})</em></p>
+      `;
+      }
+    </script>
+  </body>
+</html>
